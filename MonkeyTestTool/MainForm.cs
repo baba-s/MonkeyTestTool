@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -126,7 +127,15 @@ namespace MonkeyTest
 
 			var args = Environment.GetCommandLineArgs();
 
-			if ( args == null || args.Length == 0 ) return;
+			LoadCommandLineArgs( args );
+		}
+
+		/// <summary>
+		/// コマンドライン引数を読み込みます
+		/// </summary>
+		public void LoadCommandLineArgs( IList<string> args )
+		{
+			if ( args == null || args.Count == 0 ) return;
 
 			LoadCommandLineArg( args, xMinTextBox		, "--xMin"		);
 			LoadCommandLineArg( args, xMaxTextBox		, "--xMax"		);
@@ -136,9 +145,12 @@ namespace MonkeyTest
 			LoadCommandLineArg( args, downTimeTextBox	, "--downTime"	);
 		}
 
-		private void LoadCommandLineArg( string[] args, TextBox textBox, string key )
+		/// <summary>
+		/// 指定されたコマンドライン引数を読み込みます
+		/// </summary>
+		private void LoadCommandLineArg( IList<string> args, TextBox textBox, string key )
 		{
-			var index = Array.FindIndex( args, c => c.StartsWith( key ) );
+			var index = args.FindIndex( c => c.StartsWith( key ) );
 			if ( index == -1 ) return;
 			var arg = args.ElementAtOrDefault( index + 1 );
 			if ( string.IsNullOrWhiteSpace( arg ) ) return;
@@ -228,5 +240,17 @@ namespace MonkeyTest
 		[DllImport( "USER32.dll", CallingConvention = CallingConvention.StdCall )]
 		static extern void mouse_event( int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo );
 
+	}
+
+	public static class IListExt
+	{
+		public static int FindIndex<T>( this IList<T> self, Predicate<T> match )
+		{
+			for ( int i = 0; i < self.Count; i++ )
+			{
+				if ( match( self[ i ] ) ) return i;
+			}
+			return -1;
+		}
 	}
 }

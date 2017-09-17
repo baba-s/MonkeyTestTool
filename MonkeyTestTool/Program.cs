@@ -1,22 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace MonkeyTest
 {
-	static class Program
+	public static class Program
 	{
 		/// <summary>
 		/// アプリケーションのメイン エントリ ポイントです。
 		/// </summary>
 		[STAThread]
-		static void Main()
+		private static void Main( string[] args )
 		{
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault( false );
-			Application.Run( new MainForm() );
+			var app = new CustomApplication();
+			app.Run( args );
+		}
+	}
+
+	public sealed class CustomApplication : WindowsFormsApplicationBase
+	{
+		public CustomApplication() : base()
+		{
+			EnableVisualStyles 	 = true;
+			IsSingleInstance 	 = true;
+			MainForm 			 = new MainForm();
+			StartupNextInstance += new StartupNextInstanceEventHandler( OnStart );
+		}
+
+		private void OnStart( object sender, StartupNextInstanceEventArgs e )
+		{
+			var mainForm = MainForm as MainForm;
+			mainForm.LoadCommandLineArgs( e.CommandLine );
 		}
 	}
 }
