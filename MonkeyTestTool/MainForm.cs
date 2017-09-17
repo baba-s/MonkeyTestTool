@@ -64,7 +64,7 @@ namespace MonkeyTest
 			Cursor.Position = new Point( x, y );
 			mouse_event( MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0 );
 			
-            await Task.Delay( m_downTime );
+			await Task.Delay( m_downTime );
 			mouse_event( MOUSEEVENTF_LEFTUP, 0, 0, 0, 0 );
 		}
 		
@@ -82,7 +82,7 @@ namespace MonkeyTest
 			var pos		= PointToScreen( startButton.Location );
 			var size	= startButton.Size;
 
-			pos.X += size.Width  / 2;
+			pos.X += size.Width	 / 2;
 			pos.Y += size.Height / 2;
 
 			Cursor.Position = pos;
