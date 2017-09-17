@@ -1,6 +1,5 @@
-﻿using System;
-using System.Windows.Forms;
-using Microsoft.VisualBasic.ApplicationServices;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 
 namespace MonkeyTest
 {
@@ -24,10 +23,10 @@ namespace MonkeyTest
 			EnableVisualStyles 	 = true;
 			IsSingleInstance 	 = true;
 			MainForm 			 = new MainForm();
-			StartupNextInstance += new StartupNextInstanceEventHandler( OnStart );
+			StartupNextInstance += new StartupNextInstanceEventHandler( OnStartupNext );
 		}
 
-		private void OnStart( object sender, StartupNextInstanceEventArgs e )
+		private void OnStartupNext( object sender, StartupNextInstanceEventArgs e )
 		{
 			var mainForm = MainForm as MainForm;
 			mainForm.LoadCommandLineArgs( e.CommandLine );

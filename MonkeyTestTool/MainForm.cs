@@ -23,7 +23,8 @@ namespace MonkeyTest
 		//====================================================================================
 		// 定数（static readonly）
 		//====================================================================================
-		private static readonly Random m_random = new Random();
+		private static readonly Random	m_random	= new Random();
+		private static readonly Regex	m_numRegex	= new Regex( @"[^0-9]" );
 
 		//====================================================================================
 		// 変数
@@ -151,12 +152,16 @@ namespace MonkeyTest
 		private void LoadCommandLineArg( IList<string> args, TextBox textBox, string key )
 		{
 			var index = args.FindIndex( c => c.StartsWith( key ) );
+
 			if ( index == -1 ) return;
+
 			var arg = args.ElementAtOrDefault( index + 1 );
+
 			if ( string.IsNullOrWhiteSpace( arg ) ) return;
-			var regex = new Regex( @"[^0-9]" );
-			var replacedText = regex.Replace( arg, string.Empty );
-			var num = ToInt( replacedText );
+
+			var replacedText	= m_numRegex.Replace( arg, string.Empty );
+			var num				= ToInt( replacedText );
+
 			textBox.Text = num.ToString();
 		}
 		
@@ -227,10 +232,7 @@ namespace MonkeyTest
 		private static int ToInt( string s )
 		{
 			int result;
-			if ( int.TryParse( s, out result))
-			{
-				return int.Parse( s );
-			}
+			if ( int.TryParse( s, out result ) ) return int.Parse( s );
 			return 0;
 		}
 
@@ -239,11 +241,16 @@ namespace MonkeyTest
 		//====================================================================================
 		[DllImport( "USER32.dll", CallingConvention = CallingConvention.StdCall )]
 		static extern void mouse_event( int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo );
-
 	}
 
+	/// <summary>
+	/// IList 型の拡張メソッドを管理するクラス
+	/// </summary>
 	public static class IListExt
 	{
+		/// <summary>
+		/// 指定された条件を満たす要素のインデックスを返します
+		/// </summary>
 		public static int FindIndex<T>( this IList<T> self, Predicate<T> match )
 		{
 			for ( int i = 0; i < self.Count; i++ )
