@@ -46,6 +46,7 @@
 			this.downTimeTextBox = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.rectButton = new System.Windows.Forms.Button();
 			this.yPosTextBox = new System.Windows.Forms.TextBox();
 			this.xPosTextBox = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
@@ -132,7 +133,7 @@
 			// 
 			// startButton
 			// 
-			this.startButton.Location = new System.Drawing.Point(12, 266);
+			this.startButton.Location = new System.Drawing.Point(12, 294);
 			this.startButton.Name = "startButton";
 			this.startButton.Size = new System.Drawing.Size(327, 23);
 			this.startButton.TabIndex = 70;
@@ -143,7 +144,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(22, 83);
+			this.label5.Location = new System.Drawing.Point(20, 113);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(67, 15);
 			this.label5.TabIndex = 9;
@@ -151,7 +152,7 @@
 			// 
 			// intervalTextBox
 			// 
-			this.intervalTextBox.Location = new System.Drawing.Point(95, 80);
+			this.intervalTextBox.Location = new System.Drawing.Point(93, 110);
 			this.intervalTextBox.Name = "intervalTextBox";
 			this.intervalTextBox.Size = new System.Drawing.Size(100, 22);
 			this.intervalTextBox.TabIndex = 60;
@@ -161,7 +162,7 @@
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(201, 83);
+			this.label6.Location = new System.Drawing.Point(199, 113);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(40, 15);
 			this.label6.TabIndex = 11;
@@ -169,6 +170,7 @@
 			// 
 			// settingContainer
 			// 
+			this.settingContainer.Controls.Add(this.rectButton);
 			this.settingContainer.Controls.Add(this.label10);
 			this.settingContainer.Controls.Add(this.downTimeTextBox);
 			this.settingContainer.Controls.Add(this.label9);
@@ -185,7 +187,7 @@
 			this.settingContainer.Controls.Add(this.xMaxTextBox);
 			this.settingContainer.Location = new System.Drawing.Point(12, 104);
 			this.settingContainer.Name = "settingContainer";
-			this.settingContainer.Size = new System.Drawing.Size(327, 145);
+			this.settingContainer.Size = new System.Drawing.Size(327, 173);
 			this.settingContainer.TabIndex = 0;
 			this.settingContainer.TabStop = false;
 			this.settingContainer.Text = "設定";
@@ -193,7 +195,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(201, 111);
+			this.label10.Location = new System.Drawing.Point(199, 141);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(40, 15);
 			this.label10.TabIndex = 63;
@@ -201,7 +203,7 @@
 			// 
 			// downTimeTextBox
 			// 
-			this.downTimeTextBox.Location = new System.Drawing.Point(95, 108);
+			this.downTimeTextBox.Location = new System.Drawing.Point(93, 138);
 			this.downTimeTextBox.Name = "downTimeTextBox";
 			this.downTimeTextBox.Size = new System.Drawing.Size(100, 22);
 			this.downTimeTextBox.TabIndex = 62;
@@ -210,7 +212,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(22, 111);
+			this.label9.Location = new System.Drawing.Point(20, 141);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(67, 15);
 			this.label9.TabIndex = 61;
@@ -228,6 +230,16 @@
 			this.groupBox2.TabIndex = 100;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "カーソル座標";
+			// 
+			// rectButton
+			// 
+			this.rectButton.Location = new System.Drawing.Point(233, 80);
+			this.rectButton.Name = "rectButton";
+			this.rectButton.Size = new System.Drawing.Size(75, 23);
+			this.rectButton.TabIndex = 91;
+			this.rectButton.Text = "矩形選択";
+			this.rectButton.UseVisualStyleBackColor = true;
+			this.rectButton.Click += new System.EventHandler(this.rectButton_Click);
 			// 
 			// yPosTextBox
 			// 
@@ -276,7 +288,7 @@
 			this.AcceptButton = this.startButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(354, 307);
+			this.ClientSize = new System.Drawing.Size(354, 340);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.settingContainer);
 			this.Controls.Add(this.startButton);
@@ -323,6 +335,7 @@
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.TextBox downTimeTextBox;
+		private System.Windows.Forms.Button rectButton;
 	}
 }
 

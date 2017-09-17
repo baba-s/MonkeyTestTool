@@ -29,7 +29,7 @@ namespace MonkeyTest
 		//====================================================================================
 		// 変数
 		//====================================================================================
-		private int	m_xMin		;
+		private int		m_xMin			;
 		private int		m_xMax			;
 		private int		m_yMin			;
 		private int		m_yMax			;
@@ -230,6 +230,26 @@ namespace MonkeyTest
 			startButton.Enabled = isEnable;
 		}
 		
+		/// <summary>
+		/// 矩形選択ボタンが押された時に呼び出されます
+		/// </summary>
+		private void rectButton_Click( object sender, EventArgs e )
+		{
+			var rectForm = new RectForm( OnCompleteRectForm );
+			rectForm.Show();
+		}
+
+		/// <summary>
+		/// 矩形選択が完了した時に呼び出します
+		/// </summary>
+		private void OnCompleteRectForm( Rectangle rect )
+		{
+			xMinTextBox		.Text = rect.Left	.ToString();
+			xMaxTextBox		.Text = rect.Right	.ToString();
+			yMinTextBox		.Text = rect.Top	.ToString();
+			yMaxTextBox		.Text = rect.Bottom	.ToString();
+		}
+
 		//====================================================================================
 		// 関数（static）
 		//====================================================================================
