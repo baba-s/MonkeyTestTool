@@ -41,7 +41,7 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.intervalTextBox = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.settingContainer = new System.Windows.Forms.GroupBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.downTimeTextBox = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
 			this.label7 = new System.Windows.Forms.Label();
 			this.cursorPosTimer = new System.Windows.Forms.Timer(this.components);
 			this.clickTimer = new System.Windows.Forms.Timer(this.components);
-			this.groupBox1.SuspendLayout();
+			this.settingContainer.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -167,28 +167,28 @@
 			this.label6.TabIndex = 11;
 			this.label6.Text = "ミリ秒";
 			// 
-			// groupBox1
+			// settingContainer
 			// 
-			this.groupBox1.Controls.Add(this.label10);
-			this.groupBox1.Controls.Add(this.downTimeTextBox);
-			this.groupBox1.Controls.Add(this.label9);
-			this.groupBox1.Controls.Add(this.xMinTextBox);
-			this.groupBox1.Controls.Add(this.label6);
-			this.groupBox1.Controls.Add(this.yMinTextBox);
-			this.groupBox1.Controls.Add(this.intervalTextBox);
-			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Controls.Add(this.label5);
-			this.groupBox1.Controls.Add(this.label2);
-			this.groupBox1.Controls.Add(this.label3);
-			this.groupBox1.Controls.Add(this.yMaxTextBox);
-			this.groupBox1.Controls.Add(this.label4);
-			this.groupBox1.Controls.Add(this.xMaxTextBox);
-			this.groupBox1.Location = new System.Drawing.Point(12, 104);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(327, 145);
-			this.groupBox1.TabIndex = 0;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "設定";
+			this.settingContainer.Controls.Add(this.label10);
+			this.settingContainer.Controls.Add(this.downTimeTextBox);
+			this.settingContainer.Controls.Add(this.label9);
+			this.settingContainer.Controls.Add(this.xMinTextBox);
+			this.settingContainer.Controls.Add(this.label6);
+			this.settingContainer.Controls.Add(this.yMinTextBox);
+			this.settingContainer.Controls.Add(this.intervalTextBox);
+			this.settingContainer.Controls.Add(this.label1);
+			this.settingContainer.Controls.Add(this.label5);
+			this.settingContainer.Controls.Add(this.label2);
+			this.settingContainer.Controls.Add(this.label3);
+			this.settingContainer.Controls.Add(this.yMaxTextBox);
+			this.settingContainer.Controls.Add(this.label4);
+			this.settingContainer.Controls.Add(this.xMaxTextBox);
+			this.settingContainer.Location = new System.Drawing.Point(12, 104);
+			this.settingContainer.Name = "settingContainer";
+			this.settingContainer.Size = new System.Drawing.Size(327, 145);
+			this.settingContainer.TabIndex = 0;
+			this.settingContainer.TabStop = false;
+			this.settingContainer.Text = "設定";
 			// 
 			// label10
 			// 
@@ -278,7 +278,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(354, 307);
 			this.Controls.Add(this.groupBox2);
-			this.Controls.Add(this.groupBox1);
+			this.Controls.Add(this.settingContainer);
 			this.Controls.Add(this.startButton);
 			this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::MonkeyTest.Properties.Settings.Default, "MainFormLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -290,8 +290,8 @@
 			this.TopMost = true;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.Load += new System.EventHandler(this.MainForm_Load);
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
+			this.settingContainer.ResumeLayout(false);
+			this.settingContainer.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			this.ResumeLayout(false);
@@ -312,7 +312,7 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.TextBox intervalTextBox;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.GroupBox settingContainer;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.TextBox yPosTextBox;
 		private System.Windows.Forms.TextBox xPosTextBox;

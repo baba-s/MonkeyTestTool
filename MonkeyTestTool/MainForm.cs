@@ -78,8 +78,9 @@ namespace MonkeyTest
 			clickTimer		.Stop();
 			cursorPosTimer	.Start();
 
-			startButton.Enabled	= true;
-			startButton.Text	= START_BUTTON_TEXT_ENABLE;
+			startButton			.Enabled	= true;
+			settingContainer	.Enabled	= true;
+			startButton			.Text		= START_BUTTON_TEXT_ENABLE;
 			
 			var pos		= PointToScreen( startButton.Location );
 			var size	= startButton.Size;
@@ -104,9 +105,10 @@ namespace MonkeyTest
 
 			m_interval = Math.Max( m_downTime, m_interval );
 
-			clickTimer	.Interval	= m_interval;
-			startButton	.Enabled	= false;
-			startButton	.Text		= START_BUTTON_TEXT_DISABLE;
+			clickTimer			.Interval	= m_interval;
+			startButton			.Enabled	= false;
+			settingContainer	.Enabled	= false;
+			startButton			.Text		= START_BUTTON_TEXT_DISABLE;
 			
 			clickTimer		.Start();
 			cursorPosTimer	.Stop();
