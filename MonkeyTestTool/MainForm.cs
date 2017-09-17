@@ -30,11 +30,12 @@ namespace MonkeyTest
 		// 変数
 		//====================================================================================
 		private int	m_xMin		;
-		private int	m_xMax		;
-		private int	m_yMin		;
-		private int	m_yMax		;
-		private int	m_interval	;
-		private int	m_downTime	;
+		private int		m_xMax			;
+		private int		m_yMin			;
+		private int		m_yMax			;
+		private int		m_interval		;
+		private int		m_downTime		;
+		private bool	m_isStarting	;
 		
 		//====================================================================================
 		// 変数（readonly）
@@ -75,6 +76,8 @@ namespace MonkeyTest
 		/// </summary>
 		private void OnStop( object sender, EventArgs e )
 		{
+			if ( !m_isStarting ) return;
+
 			clickTimer		.Stop();
 			cursorPosTimer	.Start();
 
@@ -112,6 +115,8 @@ namespace MonkeyTest
 			
 			clickTimer		.Start();
 			cursorPosTimer	.Stop();
+
+			m_isStarting = true;
 		}
 
 		/// <summary>
